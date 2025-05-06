@@ -3,7 +3,7 @@ import { FaCheck } from 'react-icons/fa6';
 
 interface Props {
   item: React.ReactNode;
-  icon: ReactNode;
+  icon: React.ReactNode;
   newItem: boolean;
 }
 

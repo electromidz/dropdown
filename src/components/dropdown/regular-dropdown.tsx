@@ -1,12 +1,10 @@
-import { Button } from './button/button';
-import { Items } from './items/items';
 import './reqular-dropdown.scss';
-import { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface Props {
   children: React.ReactNode;
-  setOpen: () => void;
-  setItemsDropDown: () => void;
+  setOpen: (arg: boolean) => void;
+  setItemsDropDown: (arg: any) => void;
   itemsDropDown: Array<React.ReactNode | string>;
 }
 
@@ -16,11 +14,11 @@ export const RegularDropdown: React.FC<Props> = ({
   setItemsDropDown,
   itemsDropDown,
 }) => {
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(formData: any) {
     const data = Object.fromEntries(formData);
     if (data.input && data.input.length > 0) {
-      let elements = [];
-      itemsDropDown.forEach((e) => {
+      let elements: any = [];
+      itemsDropDown.forEach((e: any) => {
         if (e?.props?.children) {
           elements.push(e.props.children);
         } else {
@@ -31,11 +29,11 @@ export const RegularDropdown: React.FC<Props> = ({
     }
   }
 
-  const refList = useRef(null);
+  const refList = useRef<any>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (refList.current && !refList.current.contains(event.target)) {
+      if (refList && refList.current && !refList.current.contains(event.target)) {
         setOpen(false);
       }
     };
