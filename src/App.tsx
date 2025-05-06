@@ -22,7 +22,7 @@ function App() {
     setOpen(!open);
   }
 
-  let dropdownItems = useMemo(() => {
+  const dropdownItems = useMemo(() => {
     if (hoppies) {
       setItemsDropDown(hoppies);
     } else {

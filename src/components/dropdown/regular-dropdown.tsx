@@ -17,7 +17,7 @@ export const RegularDropdown: React.FC<Props> = ({
   async function handleSubmit(formData: any) {
     const data = Object.fromEntries(formData);
     if (data.input && data.input.length > 0) {
-      let elements: any = [];
+      const elements: any = [];
       itemsDropDown.forEach((e: any) => {
         if (e?.props?.children) {
           elements.push(e.props.children);
