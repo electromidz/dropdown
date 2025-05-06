@@ -1,0 +1,19 @@
+.dropdown {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.new-item {
+  color: rgba(59, 130, 246);
+}
+.new-item::before {
+  background-color: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  content: 'Yeeeah, ';
+  color: rgba(59, 130, 246);
+}
+
+.new-item::after {
+  content: '!';
+  color: rgba(59, 130, 246);
+}

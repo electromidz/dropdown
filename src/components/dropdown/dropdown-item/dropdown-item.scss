@@ -1,0 +1,26 @@
+.list {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.uppercase::first-letter {
+  text-transform: uppercase;
+}
+
+.content {
+  display: flex;
+  gap: 5px;
+}
+
+.new {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-radius: 0.4rem;
+  padding: 0.1rem;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
