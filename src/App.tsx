@@ -10,7 +10,7 @@ const hoppies = ['Education', 'Art', 'Sports', 'Games', 'Health'];
 function App() {
   const [open, setOpen] = useState<boolean>(false);
   const [itemsDropDown, setItemsDropDown] = useState<Array<string>>([]);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement | any>(null);
 
   function toggle() {
     if (inputRef.current) {
@@ -38,11 +38,10 @@ function App() {
         setItemsDropDown={setItemsDropDown}
       >
         <Button
-          item={<input ref={inputRef} autocomplete="false" type="text" name="input" />}
+          item={<input ref={inputRef} autoComplete="false" type="text" name="input" />}
           icon={<FaAngleDown color="grey" />}
           toggle={toggle}
           open={open}
-          setOpen={setOpen}
         />
         <Items items={itemsDropDown} open={open} />
       </RegularDropdown>
