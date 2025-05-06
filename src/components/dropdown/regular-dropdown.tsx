@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react';
 interface Props {
   children: React.ReactNode;
   setOpen: (arg: boolean) => void;
-  setItemsDropDown: (arg: any) => void;
+  setItemsDropDown: (arg: string | React.ReactNode) => void;
   itemsDropDown: Array<React.ReactNode | string>;
 }
 
@@ -14,26 +14,27 @@ export const RegularDropdown: React.FC<Props> = ({
   setItemsDropDown,
   itemsDropDown,
 }) => {
-  async function handleSubmit(formData: any) {
+  async function handleSubmit(formData: FormData) {
     const data = Object.fromEntries(formData);
-    if (data.input && data.input.length > 0) {
+    const input = data.input?.toString().trim();
+    if (input && input.length > 0) {
       const elements: any = [];
       itemsDropDown.forEach((e: any) => {
-        if (e?.props?.children) {
+        if (e.props && typeof e.props?.children === 'string') {
           elements.push(e.props.children);
         } else {
           elements.push(e);
         }
       });
-      setItemsDropDown([...elements, <span className="new-item">{data.input}</span>]);
+      setItemsDropDown([...elements, <span className="new-item">{input}</span>]);
     }
   }
 
-  const refList = useRef<any>(null);
+  const refList = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (refList && refList.current && !refList.current.contains(event.target)) {
+      if (refList && refList.current && !refList.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };

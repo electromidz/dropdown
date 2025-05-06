@@ -4,7 +4,7 @@ import { FaCheck } from 'react-icons/fa6';
 interface Props {
   item: React.ReactNode;
   icon: React.ReactNode;
-  newItem: boolean;
+  newItem?: boolean;
 }
 
 export const DropdownListItem: React.FC<Props> = ({ item, icon, newItem }) => {
